@@ -1,1808 +1,1412 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<title>Amirtha Varshini Padmanabhan</title>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-<link rel="stylesheet" href="css/owl.theme.default.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Amirtha Varshini Padmanabhan – Data Analyst & Portfolio</title>
+    <meta name="description" content="Portfolio of Amirtha Varshini Padmanabhan – Data Analytics & MIS Graduate Student at HFS." />
 
-/* Single quote fade animation */
-.single-quote-fade {
-    opacity: 1;
-    transition: opacity 2s ease-in-out;
-    animation: singleQuoteFade 6s infinite;
-}
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#ecfeff', 100: '#cffafe', 200: '#a5f3fc', 300: '#67e8f9', 400: '#22d3ee',
+                            500: '#14b8a6', 600: '#0d9488', 700: '#0f766e', 800: '#115e59', 900: '#134e4a'
+                        },
+                        accent: {
+                            500: '#ec4899',
+                            600: '#db2777'
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out',
+                        'fade-in': 'fadeIn 1s ease-in',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'slide-in': 'slideIn 0.5s ease-out'
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        slideIn: {
+                            '0%': { transform: 'translateX(-100%)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' }
+                        }
+                    }
+                }
+            },
+            darkMode: 'class'
+        }
+    </script>
 
-@keyframes singleQuoteFade {
-    0%, 20% { opacity: 1; }
-    40%, 60% { opacity: 0.3; }
-    80%, 100% { opacity: 1; }
-}
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-/* Pause animation on hover */
-.single-quote-fade:hover {
-    animation-play-state: paused;
-    transform: scale(1.02);
-    text-shadow: 0 0 10px rgba(20, 184, 166, 0.5);
-}
+    <!-- Theme bootstrap BEFORE page paint -->
+    <script>
+        (() => {
+            const stored = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (stored === 'dark' || (!stored && prefersDark)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        })();
+    </script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Smooth underline hover */
+        .link-underline {
+            position: relative;
+        }
+        .link-underline::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            height: 2px;
+            width: 0;
+            background: currentColor;
+            transition: width .25s ease;
+        }
+        .link-underline:hover::after {
+            width: 100%;
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #14b8a6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Glassmorphism card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Timeline styles */
+        .timeline-line {
+            background: linear-gradient(180deg, #14b8a6, #ec4899, #8b5cf6);
+        }
+
+        /* Skill progress bar animation */
+        .skill-bar {
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Counter animation */
+        .counter {
+            transition: all 0.3s ease;
+        }
+        .counter:hover {
+            transform: scale(1.1);
+        }
+
+        /* Profile image styling */
+        .profile-image-container {
+            position: relative;
+        }
+        .profile-image-container::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            background: linear-gradient(135deg, #14b8a6, #ec4899);
+            border-radius: 50%;
+            z-index: -1;
+            animation: spin 8s linear infinite;
+        }
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Certification badge */
+        .cert-badge {
+            background: linear-gradient(135deg, #14b8a6, #0d9488);
+            transition: all 0.3s ease;
+        }
+        .cert-badge:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(20, 184, 166, 0.4);
+        }
+
+        /* Hide scrollbar for gallery */
+        .gallery-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .gallery-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
 
 
-/* Custom CSS for missing classes */
-.progress {
-background-color: #e9ecef;
-border-radius: 0.25rem;
-height: 1rem;
-overflow: hidden;
-}
-.progress-bar {
-height: 100%;
-background-color: #007bff;
-transition: width 0.6s ease;
-}
-.color-1 { background-color: #17a2b8; }
-.color-2 { background-color: #28a745; }
-.color-3 { background-color: #ffc107; }
-.color-4 { background-color: #dc3545; }
-.color-6 { background-color: #6f42c1; }
+        /* Dialog backdrop */
+        dialog::backdrop {
+            background: rgb(0 0 0 / .6);
+        }
 
-:root {
-  --bg-primary: #1a1a1a;
-  --bg-secondary: #2d2d2d;
-  --text-primary: #ffffff;
-  --text-secondary: #cccccc;
-  --border-color: #404040;
-  --accent-color: #007bff;
-}
+        /* Mobile menu animation */
+        .mobile-menu-enter {
+            animation: slideIn 0.3s ease-out;
+        }
 
-[data-theme="light"] {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --text-primary: #333333;
-  --text-secondary: #666666;
-  --border-color: #e0e0e0;
-  --accent-color: #007bff;
-}
-
-.profile-image {
-width: 320px;
-height: 320px;
-border-radius: 50%;
-object-fit: cover;
-border: 4px solid #14b8a6;
-box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3);
-transition: transform 0.3s ease;
-}
-
-.profile-image:hover {
-transform: scale(1.05);
-}
-
-.timeline-container {
-max-width: 800px;
-margin: 0 auto;
-padding: 20px;
-}
-.timeline-item {
-margin-bottom: 30px;
-padding: 20px;
-background: white;
-border-radius: 10px;
-box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-color: #333;
-position: relative;
-overflow: hidden;
-}
-.timeline-item::before {
-content: '';
-position: absolute;
-top: 0;
-right: 0;
-width: 100px;
-height: 100px;
-background: linear-gradient(45deg, rgba(20, 184, 166, 0.1), rgba(59, 130, 246, 0.1));
-border-radius: 50%;
-transform: translate(30px, -30px);
-}
-.timeline-title {
-color: #4169e1;
-font-size: 1.2em;
-font-weight: bold;
-margin-bottom: 10px;
-}
-.timeline-date {
-color: #666;
-font-size: 0.9em;
-margin-top: 10px;
-}
-
-.project-card {
-background: white;
-border-radius: 10px;
-overflow: hidden;
-box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-transition: transform 0.3s ease;
-cursor: pointer;
-}
-.project-card:hover {
-transform: translateY(-5px);
-}
-.project-image {
-height: 200px;
-background-size: cover;
-background-position: center;
-position: relative;
-}
-.project-overlay {
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background: rgba(0,0,0,0.7);
-display: flex;
-align-items: center;
-justify-content: center;
-opacity: 0;
-transition: opacity 0.3s ease;
-}
-.project-card:hover .project-overlay {
-opacity: 1;
-}
-
-.animate-fade-in {
-animation: fadeIn 1s ease-in;
-}
-
-@keyframes fadeIn {
-from { opacity: 0; transform: translateY(30px); }
-to { opacity: 1; transform: translateY(0); }
-}
-
-.skill-icon {
-width: 60px;
-height: 60px;
-margin: 0 auto 15px;
-background-size: contain;
-background-repeat: no-repeat;
-background-position: center;
-border-radius: 10px;
-padding: 10px;
-background-color: rgba(255,255,255,0.1);
-}
-
-.gallery-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-gap: 20px;
-margin-top: 30px;
-}
-
-.gallery-item {
-border-radius: 10px;
-overflow: hidden;
-box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-transition: transform 0.3s ease;
-}
-
-.gallery-item:hover {
-transform: scale(1.05);
-}
-
-.gallery-item img {
-width: 100%;
-height: 200px;
-object-fit: cover;
-}
-
-.hero-bg {
-background: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(31, 41, 55, 0.8)), 
+        .hero-bg {
+          background: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(31, 41, 55, 0.8)),
             url('images/AV1.jpg') center/cover;
-}
+          background-size: cover;
+          background-position: center;
+          transition: background-image 1s ease-in-out;
+          animation: heroImageRotation 12s infinite;
+        }
 
-.about-bg {
-background: linear-gradient(135deg, rgba(31, 41, 55, 0.9), rgba(17, 24, 39, 0.9)), 
-            url('images/about-bg.jpg') center/cover;
-}
-
-/* Services Section Styles */
-.services-1 {
-background: rgba(255, 255, 255, 0.1);
-backdrop-filter: blur(10px);
-border: 1px solid rgba(255, 255, 255, 0.2);
-border-radius: 15px;
-padding: 40px 30px;
-text-align: center;
-transition: all 0.3s ease;
-height: 100%;
-}
-
-.services-1:hover {
-transform: translateY(-10px);
-background: rgba(255, 255, 255, 0.15);
-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.services-1 .icon {
-display: inline-block;
-width: 80px;
-height: 80px;
-background: linear-gradient(135deg, #14b8a6, #06b6d4);
-border-radius: 50%;
-margin: 0 auto 30px;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 2.5rem;
-color: white;
-box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3);
-}
-
-.services-1 h3 {
-color: #14b8a6;
-font-size: 1.5rem;
-font-weight: 600;
-margin-bottom: 20px;
-}
-
-.services-1 h3 a {
-color: inherit;
-text-decoration: none;
-}
-
-.services-1 h4 {
-color: #d1d5db;
-font-size: 1rem;
-margin-bottom: 10px;
-font-weight: 400;
-}
-
-/* Enhanced Counter Section Styles */
-.counter-section {
-background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(31, 41, 55, 0.9));
-position: relative;
-overflow: hidden;
-}
-
-.counter-section::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="10" cy="90" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-pointer-events: none;
-}
-
-.colorlib-counters {
-background-size: cover;
-background-position: center;
-background-attachment: fixed;
-padding: 80px 0;
-position: relative;
-border-radius: 10px;
-overflow: hidden;
-}
-
-.colorlib-counters::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background: rgba(0, 0, 0, 0.6);
-border-radius: 10px;
-}
-
-.counter-margin {
-position: relative;
-z-index: 2;
-padding: 20px;
-transition: all 0.3s ease;
-}
-
-.counter-margin:hover {
-transform: translateY(-5px);
-}
-
-.colorlib-counter-label {
-display: block;
-color: #14b8a6;
-font-size: 1.2rem;
-font-weight: 600;
-margin-bottom: 15px;
-text-transform: uppercase;
-letter-spacing: 1px;
-transition: all 0.3s ease;
-}
-
-.counter-margin:hover .colorlib-counter-label {
-color: #06b6d4;
-text-shadow: 0 0 10px rgba(20, 184, 166, 0.5);
-}
-
-.counter {
-font-size: 3.5rem;
-font-weight: 700;
-color: white;
-font-family: 'Poppins', Arial, sans-serif;
-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-transition: all 0.3s ease;
-}
-
-.counter-margin:hover .counter {
-transform: scale(1.1);
-color: #14b8a6;
-text-shadow: 0 0 20px rgba(20, 184, 166, 0.5), 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-/* Add a subtle glow effect during animation */
-@keyframes counterGlow {
-0%, 100% { 
-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
-}
-50% { 
-text-shadow: 0 0 20px rgba(20, 184, 166, 0.5), 2px 2px 4px rgba(0, 0, 0, 0.5); 
-}
-}
-
-.counter.animating {
-animation: counterGlow 2s ease-in-out;
-}
-
-/* Roadmap Styles */
-.roadmap-container {
-position: relative;
-}
-
-.roadmap-item {
-position: relative;
-margin-bottom: 4rem;
-opacity: 0;
-transform: translateY(50px);
-animation: roadmapFadeIn 0.8s ease-out forwards;
-}
-
-.roadmap-item:nth-child(1) { animation-delay: 0.2s; }
-.roadmap-item:nth-child(2) { animation-delay: 0.4s; }
-.roadmap-item:nth-child(3) { animation-delay: 0.6s; }
-.roadmap-item:nth-child(4) { animation-delay: 0.8s; }
-.roadmap-item:nth-child(5) { animation-delay: 1.0s; }
-
-.roadmap-card {
-position: relative;
-backdrop-filter: blur(10px);
-border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.roadmap-card::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background: linear-gradient(45deg, rgba(255,255,255,0.1), transparent);
-border-radius: inherit;
-pointer-events: none;
-}
-
-@media (max-width: 1024px) {
-.roadmap-item:nth-child(even) .roadmap-card {
-margin-left: 0;
-}
-}
-
-@keyframes roadmapFadeIn {
-to {
-opacity: 1;
-transform: translateY(0);
-}
-}
-
-/* Pulse animation for current item */
-.roadmap-item:first-child .roadmap-card {
-animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-0%, 100% {
-box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.4);
-}
-50% {
-box-shadow: 0 0 0 20px rgba(20, 184, 166, 0);
-}
-}
-
-/* Mobile Navigation */
-.mobile-menu {
-display: none;
-}
-
-@media (max-width: 768px) {
-.mobile-menu {
-display: block;
-}
-}
-
-/* Smooth scrolling */
-html {
-scroll-behavior: smooth;
-}
-
-/* Loading animation for images */
-img {
-transition: opacity 0.3s ease;
-}
-
-img[src=""], img:not([src]) {
-opacity: 0;
-}
-
-.hero-bg {
-background: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(31, 41, 55, 0.8)), 
-            url('images/AV1.jpg') center/cover;
-background-size: cover;
-background-position: center;
-transition: background-image 1s ease-in-out;
-animation: heroImageRotation 12s infinite;
-}
-
-/* Add this new keyframe animation */
-@keyframes heroImageRotation {
-0% { 
-    background-image: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(31, 41, 55, 0.8)), url('images/AV1.jpg');
-}
-25% { 
-    background-image: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(31, 41, 55, 0.8)), url('images/AV2.jpg');
-}
-50% { 
-    background-image: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(31, 41, 55, 0.8)), url('images/AV3.webp');
-}
-75% { 
-    background-image: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(31, 41, 55, 0.8)), url('images/AV4.jpg');
-}
-100% { 
-    background-image: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(31, 41, 55, 0.8)), url('images/AV1.jpg');
-}
-}
-
-</style>
+        /* Add this new keyframe animation */
+        @keyframes heroImageRotation {
+          0% {
+            background-image: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(31, 41, 55, 0.8)), url('images/AV1.jpg');
+          }
+          25% {
+            background-image: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(31, 41, 55, 0.8)), url('images/AV2.jpg');
+          }
+          50% {
+            background-image: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(31, 41, 55, 0.8)), url('images/AV3.webp');
+          }
+          75% {
+            background-image: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(31, 41, 55, 0.8)), url('images/AV4.jpg');
+          }
+          100% {
+            background-image: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(31, 41, 55, 0.8)), url('images/AV1.jpg');
+          }
+        }
+    </style>
 </head>
 
-<body class="font-[Poppins] bg-gray-900 text-white">
-<!-- Navigation -->
-<nav class="bg-gray-800 fixed w-full z-50 backdrop-blur-sm bg-opacity-90">
-<div class="container mx-auto flex justify-between items-center px-4 py-3">
-<a href="#home-section" class="text-white text-2xl font-bold flex items-center">
-<img src="images/logo.png" alt="AV" class="w-8 h-8 mr-2 rounded-full" onerror="this.style.display='none'">
-AV
-</a>
-<div class="hidden md:flex space-x-6">
-<a href="#home-section" class="hover:text-teal-400 transition">Home</a>
-<a href="#about-section" class="hover:text-teal-400 transition">About</a>
-<a href="#services-section" class="hover:text-teal-400 transition">Services</a>
-<a href="#skills-section" class="hover:text-teal-400 transition">Skills</a>
-<a href="#timeline-section" class="hover:text-teal-400 transition">Timeline</a>
-<a href="#projects-section" class="hover:text-teal-400 transition">Projects</a>
-<a href="#gallery-section" class="hover:text-teal-400 transition">Gallery</a>
-<a href="#contact-section" class="hover:text-teal-400 transition">Contact</a>
-</div>
-<!-- Mobile menu button -->
-<button class="md:hidden text-white" id="mobile-menu-btn">
-<i class="fas fa-bars text-xl"></i>
-</button>
-</div>
-<!-- Mobile menu -->
-<div class="md:hidden bg-gray-800 hidden" id="mobile-menu">
-<div class="px-4 py-2 space-y-2">
-<a href="#home-section" class="block hover:text-teal-400 transition py-2">Home</a>
-<a href="#about-section" class="block hover:text-teal-400 transition py-2">About</a>
-<a href="#services-section" class="block hover:text-teal-400 transition py-2">Services</a>
-<a href="#skills-section" class="block hover:text-teal-400 transition py-2">Skills</a>
-<a href="#timeline-section" class="block hover:text-teal-400 transition py-2">Timeline</a>
-<a href="#projects-section" class="block hover:text-teal-400 transition py-2">Projects</a>
-<a href="#gallery-section" class="block hover:text-teal-400 transition py-2">Gallery</a>
-<a href="#contact-section" class="block hover:text-teal-400 transition py-2">Contact</a>
-</div>
-</div>
-</nav>
+<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
 
-<!-- Hero Section -->
-<section id="home-section" class="pt-24 min-h-screen flex items-center hero-bg">
-<div class="container mx-auto px-4">
-<div class="flex flex-col lg:flex-row items-center">
-<div class="lg:w-1/2 mb-8 lg:mb-0 animate-fade-in">
-<div class="text-4xl mb-4">👋</div>
-<span class="text-xl text-pink-400">Hello</span>
-<h1 class="text-5xl font-bold leading-tight mt-2 mb-6">
-I'm <span class="text-pink-400">Amirtha Varshini<br />Padmanabhan</span>
-</h1>
-<p class="text-xl mb-8 text-gray-300">Data Analyst & MIS Graduate Student</p>
-<div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-<a href="https://drive.google.com/file/d/1kYU_-RYzfSYY0tYrcsKkFRl7hznR9p02/view?usp=drive_link"
-target="_blank"
-class="inline-block bg-pink-500 text-white px-8 py-3 rounded-full shadow hover:bg-teal-400 transition text-center">
-Download CV
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:supports-[backdrop-filter]:bg-slate-900/80 border-b border-slate-200/60 dark:border-slate-800/60">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6">
+            <div class="flex items-center justify-between h-16">
+                <a href="#home" class="font-bold tracking-tight text-2xl gradient-text link-underline">AV</a>
+                <nav class="hidden lg:flex items-center gap-6 text-sm font-medium">
+                    <a href="#home" class="link-underline hover:text-brand-500 transition">Home</a>
+                    <a href="#about" class="link-underline hover:text-brand-500 transition">About</a>
+                    <a href="#services" class="link-underline hover:text-brand-500 transition">Services</a>
+                    <a href="#skills" class="link-underline hover:text-brand-500 transition">Skills</a>
+                    <a href="#timeline" class="link-underline hover:text-brand-500 transition">Timeline</a>
+                    <a href="#projects" class="link-underline hover:text-brand-500 transition">Projects</a>
+                    <a href="#certifications" class="link-underline hover:text-brand-500 transition">Certifications</a>
+                    <a href="#gallery" class="link-underline hover:text-brand-500 transition">Gallery</a>
+                    <a href="#contact" class="link-underline hover:text-brand-500 transition">Contact</a>
+                </nav>
+                <div class="flex items-center gap-3">
+                    <!-- Theme toggle -->
+                    <button id="themeToggle" aria-label="Toggle dark mode" class="p-2 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300">
+                        <span id="icon-sun" class="hidden" aria-hidden="true">☀️</span>
+                        <span id="icon-moon" class="hidden" aria-hidden="true">🌙</span>
+                    </button>
+                    <!-- Mobile menu -->
+                    <button id="menuBtn" class="lg:hidden p-2 rounded-xl border border-slate-200 dark:border-slate-700" aria-expanded="false" aria-controls="mobileNav">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile nav -->
+            <nav id="mobileNav" class="lg:hidden hidden pb-4">
+                <div class="flex flex-col gap-2 text-sm font-medium">
+                    <a class="py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition" href="#home">Home</a>
+                    <a class="py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition" href="#about">About</a>
+                    <a class="py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition" href="#services">Services</a>
+                    <a class="py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition" href="#skills">Skills</a>
+                    <a class="py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition" href="#timeline">Timeline</a>
+                    <a class="py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition" href="#projects">Projects</a>
+                    <a class="py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition" href="#certifications">Certifications</a>
+                    <a class="py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition" href="#gallery">Gallery</a>
+                    <a class="py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition" href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center relative">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-24">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-in-up">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-500/10 dark:bg-brand-500/20 text-brand-600 dark:text-brand-400 text-sm font-medium mb-6">
+                        <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                        Available for opportunities
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-6">
+                        Hi, I'm <span class="gradient-text">Amirtha Varshini</span>
+                    </h1>
+                    <p class="text-xl sm:text-2xl text-slate-600 dark:text-slate-300 mb-4 font-medium">
+                        Data Analyst @ HFS
+                    </p>
+                    <p class="text-lg text-slate-600 dark:text-slate-400 max-w-xl mb-8">
+                        MIS Graduate Student at University of Illinois Springfield. Passionate about transforming complex data into actionable insights and driving data-driven decision-making.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <a href="#contact" class="inline-flex items-center rounded-2xl px-6 py-3 bg-brand-600 text-white hover:bg-brand-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                            Get In Touch
+                        </a>
+                        <a href="#projects" class="inline-flex items-center rounded-2xl px-6 py-3 border-2 border-brand-600 text-brand-700 dark:text-brand-300 hover:bg-brand-50 dark:hover:bg-brand-900/30 transition-all duration-300">
+                            View Projects
+                        </a>
+                       <a href="https://drive.google.com/file/d/1k3xhnP1qw4nqjVXhiaNp1cVTf_oj4goE/view?usp=drive_link"
+   target="_blank"
+   class="inline-flex items-center rounded-2xl px-6 py-3 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300">
+  <i class="fas fa-download mr-2"></i> Download CV
 </a>
-<a href="#contact-section"
-class="inline-block border-2 border-pink-500 text-pink-500 px-8 py-3 rounded-full hover:bg-teal-500 hover:text-white transition text-center">
-Contact Me
-</a>
+
+                    </div>
+                    <div class="flex items-center gap-6 text-slate-600 dark:text-slate-400">
+                        <a href="https://www.linkedin.com/in/amirtha-varshini-padmanabhan-b31146265/" target="_blank" class="hover:text-brand-500 transition transform hover:scale-110">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="https://github.com/crazy816" target="_blank" class="hover:text-brand-500 transition transform hover:scale-110">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <a href="mailto:varshujanu26@gmail.com" class="hover:text-brand-500 transition transform hover:scale-110">
+                            <i class="fas fa-envelope text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex justify-center animate-fade-in">
+                    <div class="profile-image-container">
+                        <img src="images/AV5.jpg" 
+                             alt="Amirtha Varshini Padmanabhan" 
+                             class="w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full object-cover shadow-2xl ring-4 ring-brand-200/60 dark:ring-brand-800/50"
+                             onerror="this.src='images/AV5.jpg'" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-slate-400 hover:text-brand-500 transition">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="border-t border-slate-200 dark:border-slate-800 py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <span class="text-brand-600 dark:text-brand-400 text-sm font-semibold tracking-wider uppercase">About Me</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mt-2 mb-4">Passionate Data Professional</h2>
+            </div>
+            <div class="grid lg:grid-cols-3 gap-10">
+                <div class="lg:col-span-2 space-y-6">
+                    <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+                        I'm a <span class="font-semibold text-brand-600 dark:text-brand-400">Data Analyst</span> currently working at <span class="font-semibold">HFS</span>, pursuing my Master's in Management Information Systems at the University of Illinois Springfield. With a strong foundation in software engineering from Fujitec India, I bring a unique blend of technical expertise and analytical thinking to every project.
+                    </p>
+                    <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+                        My journey in technology began with a Bachelor's in Electrical Engineering from Anna University, followed by valuable industry experience developing pricing and design tools. Now, I specialize in transforming complex datasets into meaningful insights that drive strategic business decisions.
+                    </p>
+                    <div class="grid sm:grid-cols-2 gap-6 mt-8">
+                        <div class="glass-card p-6 rounded-2xl">
+                            <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center mb-4">
+                                <i class="fas fa-chart-line text-brand-600 dark:text-brand-400 text-xl"></i>
+                            </div>
+                            <h3 class="font-semibold mb-2">Data Analytics</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400">Transforming raw data into actionable insights and visualizations</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl">
+                            <div class="w-12 h-12 rounded-xl bg-accent-500/10 flex items-center justify-center mb-4">
+                                <i class="fas fa-brain text-accent-500 text-xl"></i>
+                            </div>
+                            <h3 class="font-semibold mb-2">Machine Learning</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400">Building predictive models and intelligent solutions</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-4">
+                                <i class="fas fa-code text-purple-500 text-xl"></i>
+                            </div>
+                            <h3 class="font-semibold mb-2">Software Development</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400">Full-stack development with modern technologies</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl">
+                            <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4">
+                                <i class="fas fa-project-diagram text-blue-500 text-xl"></i>
+                            </div>
+                            <h3 class="font-semibold mb-2">Business Intelligence</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400">Creating dashboards and reports for strategic decisions</p>
+                        </div>
+                    </div>
+                </div>
+                <aside class="space-y-4">
+                    <div class="glass-card p-6 rounded-2xl">
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-1"><i class="fas fa-map-marker-alt mr-2 text-brand-500"></i>Location</p>
+                        <p class="font-semibold"> Illinois, USA</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-1"><i class="fas fa-briefcase mr-2 text-brand-500"></i>Current Role</p>
+                        <p class="font-semibold">Data Analyst @ HFS</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-1"><i class="fas fa-graduation-cap mr-2 text-brand-500"></i>Education</p>
+                        <p class="font-semibold">Management in Information System @ UIS</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-1"><i class="fas fa-envelope mr-2 text-brand-500"></i>Email</p>
+                        <a class="link-underline font-semibold" href="mailto:varshujanu26@gmail.com">varshujanu26@gmail.com</a>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl text-center">
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-2">Life Philosophy</p>
+                        <p class="font-semibold italic text-brand-600 dark:text-brand-400">"Aut viam inveniam aut faciam"</p>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">I shall either find a way or make one</p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="border-t border-slate-200 dark:border-slate-800 py-20 bg-slate-50 dark:bg-slate-900/50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <span class="text-brand-600 dark:text-brand-400 text-sm font-semibold tracking-wider uppercase">What I Do</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mt-2 mb-4">Strategy, Analysis & Innovation</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl text-center group">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-search-dollar text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Data Analysis</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Expert in extracting insights from complex datasets using Python, SQL, and advanced statistical methods</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl text-center group">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-accent-500 to-accent-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-chart-bar text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Business Intelligence</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Creating interactive dashboards and reports in Tableau that drive strategic business decisions</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl text-center group">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-cogs text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Process Optimization</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Leveraging ARIS modeling to analyze and optimize business processes for maximum efficiency</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Counter Section -->
+    <section class="py-20 bg-gradient-to-r from-brand-600 to-accent-600">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
+                <div class="counter">
+                    <div class="text-4xl sm:text-5xl font-black mb-2" data-count="35">0</div>
+                    <div class="text-sm opacity-80 uppercase tracking-wider">Coffee Cups</div>
+                </div>
+                <div class="counter">
+                    <div class="text-4xl sm:text-5xl font-black mb-2" data-count="7">0</div>
+                    <div class="text-sm opacity-80 uppercase tracking-wider">Projects</div>
+                </div>
+                <div class="counter">
+                    <div class="text-4xl sm:text-5xl font-black mb-2" data-count="10">0</div>
+                    <div class="text-sm opacity-80 uppercase tracking-wider">Events</div>
+                </div>
+                <div class="counter">
+                    <div class="text-4xl sm:text-5xl font-black mb-2" data-count="40000">0</div>
+                    <div class="text-sm opacity-80 uppercase tracking-wider">Lines of Code</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="border-t border-slate-200 dark:border-slate-800 py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <span class="text-brand-600 dark:text-brand-400 text-sm font-semibold tracking-wider uppercase">Skills</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mt-2 mb-4">Technical Expertise</h2>
+                <p class="text-slate-600 dark:text-slate-400">Always ready to explore new and emerging technologies</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Programming Languages -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-code text-brand-500 mr-3"></i> Programming
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Python</span>
+                                <span class="text-brand-500">85%</span>
+                            </div>
+                            <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-brand-500 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Java</span>
+                                <span class="text-brand-500">75%</span>
+                            </div>
+                            <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-brand-500 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>C</span>
+                                <span class="text-brand-500">70%</span>
+                            </div>
+                            <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-brand-500 rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data & BI -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-database text-accent-500 mr-3"></i> Data & BI
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>SQL</span>
+                                <span class="text-accent-500">80%</span>
+                            </div>
+                            <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-accent-500 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Tableau</span>
+                                <span class="text-accent-500">75%</span>
+                            </div>
+                            <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-accent-500 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Excel (Pivot, PowerQuery)</span>
+                                <span class="text-accent-500">85%</span>
+                            </div>
+                            <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-accent-500 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud & DevOps -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-cloud text-purple-500 mr-3"></i> Cloud & DevOps
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Azure</span>
+                                <span class="text-purple-500">65%</span>
+                            </div>
+                            <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-purple-500 rounded-full" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>.NET Microservices</span>
+                                <span class="text-purple-500">60%</span>
+                            </div>
+                            <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-purple-500 rounded-full" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Git & GitHub</span>
+                                <span class="text-purple-500">75%</span>
+                            </div>
+                            <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-purple-500 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Development -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-globe text-blue-500 mr-3"></i> Web Development
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>HTML/CSS/Tailwind</span>
+                                <span class="text-blue-500">80%</span>
+                            </div>
+                            <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-blue-500 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>JavaScript</span>
+                                <span class="text-blue-500">65%</span>
+                            </div>
+                            <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-blue-500 rounded-full" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>UI & UX Design</span>
+                                <span class="text-blue-500">60%</span>
+                            </div>
+                            <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-blue-500 rounded-full" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Process Modeling -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-sitemap text-green-500 mr-3"></i> Process Modeling
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>ARIS Modeler</span>
+                                <span class="text-green-500">70%</span>
+                            </div>
+                            <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-green-500 rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Business Process Analysis</span>
+                                <span class="text-green-500">75%</span>
+                            </div>
+                            <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-green-500 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Workflow Optimization</span>
+                                <span class="text-green-500">70%</span>
+                            </div>
+                            <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-green-500 rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools & Others -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-tools text-orange-500 mr-3"></i> Tools & Others
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Jupyter Notebook</span>
+                                <span class="text-orange-500">85%</span>
+                            </div>
+                            <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-orange-500 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>VS Code</span>
+                                <span class="text-orange-500">90%</span>
+                            </div>
+                            <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-orange-500 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Wireshark</span>
+                                <span class="text-orange-500">65%</span>
+                            </div>
+                            <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-orange-500 rounded-full" style="width: 65%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="border-t border-slate-200 dark:border-slate-800 py-20 bg-slate-50 dark:bg-slate-900/50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <span class="text-brand-600 dark:text-brand-400 text-sm font-semibold tracking-wider uppercase">Timeline</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mt-2 mb-4">My Journey</h2>
+                <p class="text-slate-600 dark:text-slate-400">A snapshot of my academic and professional milestones</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <!-- Timeline line -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full timeline-line rounded-full"></div>
+
+                    <!-- Timeline Items -->
+                    <div class="space-y-12">
+                        <!-- Current: HFS -->
+                        <div class="relative flex items-center justify-between">
+                            <div class="w-5/12 text-right pr-8">
+                                <div class="glass-card p-6 rounded-2xl">
+                                    <span class="inline-block px-3 py-1 rounded-full bg-brand-500 text-white text-xs font-semibold mb-3">CURRENT</span>
+                                    <h3 class="text-xl font-bold mb-1">Data Analyst Intern</h3>
+                                    <h4 class="text-brand-600 dark:text-brand-400 font-semibold mb-3">Illinois Department of Healthcare and Family Services</h4>
+                                    <p class="text-slate-600 dark:text-slate-400 text-sm">Leading data analysis initiatives, creating insightful dashboards, and driving data-driven decision-making processes.</p>
+                                </div>
+                            </div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-brand-500 rounded-full border-4 border-white dark:border-slate-900 shadow-lg z-10"></div>
+                            <div class="w-5/12 pl-8">
+                                <div class="text-slate-600 dark:text-slate-400 font-semibold">January 2026 – Present</div>
+                            </div>
+                        </div>
+
+                        <!-- UIS -->
+                        <div class="relative flex items-center justify-between">
+                            <div class="w-5/12 text-right pr-8">
+                                <div class="text-slate-600 dark:text-slate-400 font-semibold">January 2025 – Present</div>
+                            </div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-accent-500 rounded-full border-4 border-white dark:border-slate-900 shadow-lg z-10"></div>
+                            <div class="w-5/12 pl-8">
+                                <div class="glass-card p-6 rounded-2xl">
+                                    <span class="inline-block px-3 py-1 rounded-full bg-accent-500 text-white text-xs font-semibold mb-3">EDUCATION</span>
+                                    <h3 class="text-xl font-bold mb-1">Master's in MIS</h3>
+                                    <h4 class="text-accent-500 font-semibold mb-3">University of Illinois Springfield</h4>
+                                    <p class="text-slate-600 dark:text-slate-400 text-sm">Specializing in data analytics, information systems, and business intelligence with a focus on practical applications.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Fujitec -->
+                        <div class="relative flex items-center justify-between">
+                            <div class="w-5/12 text-right pr-8">
+                                <div class="glass-card p-6 rounded-2xl">
+                                    <span class="inline-block px-3 py-1 rounded-full bg-purple-500 text-white text-xs font-semibold mb-3">PROFESSIONAL</span>
+                                    <h3 class="text-xl font-bold mb-1">Software Design Engineer</h3>
+                                    <h4 class="text-purple-500 font-semibold mb-3">Fujitec India</h4>
+                                    <p class="text-slate-600 dark:text-slate-400 text-sm">Developed pricing and design tools that improved team collaboration and streamlined engineering workflows.</p>
+                                </div>
+                            </div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-purple-500 rounded-full border-4 border-white dark:border-slate-900 shadow-lg z-10"></div>
+                            <div class="w-5/12 pl-8">
+                                <div class="text-slate-600 dark:text-slate-400 font-semibold">July 2023 – December 2024</div>
+                            </div>
+                        </div>
+
+                        <!-- Shiash Internship -->
+                        <div class="relative flex items-center justify-between">
+                            <div class="w-5/12 text-right pr-8">
+                                <div class="text-slate-600 dark:text-slate-400 font-semibold">December 2022 – May 2023</div>
+                            </div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-green-500 rounded-full border-4 border-white dark:border-slate-900 shadow-lg z-10"></div>
+                            <div class="w-5/12 pl-8">
+                                <div class="glass-card p-6 rounded-2xl">
+                                    <span class="inline-block px-3 py-1 rounded-full bg-green-500 text-white text-xs font-semibold mb-3">INTERNSHIP</span>
+                                    <h3 class="text-xl font-bold mb-1">Software Development Intern</h3>
+                                    <h4 class="text-green-500 font-semibold mb-3">Shiash Info Solutions</h4>
+                                    <p class="text-slate-600 dark:text-slate-400 text-sm">Worked on mobile, web, and cloud projects, gaining hands-on experience in full-stack development.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Anna University -->
+                        <div class="relative flex items-center justify-between">
+                            <div class="w-5/12 text-right pr-8">
+                                <div class="glass-card p-6 rounded-2xl">
+                                    <span class="inline-block px-3 py-1 rounded-full bg-blue-500 text-white text-xs font-semibold mb-3">EDUCATION</span>
+                                    <h3 class="text-xl font-bold mb-1">Bachelor's in Electrical Engineering</h3>
+                                    <h4 class="text-blue-500 font-semibold mb-3">Anna University</h4>
+                                    <p class="text-slate-600 dark:text-slate-400 text-sm">Foundation in engineering principles with focus on technology and software development.</p>
+                                </div>
+                            </div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-blue-500 rounded-full border-4 border-white dark:border-slate-900 shadow-lg z-10"></div>
+                            <div class="w-5/12 pl-8">
+                                <div class="text-slate-600 dark:text-slate-400 font-semibold">August 2019 – May 2023</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Projects Section -->
+      <!-- Project Card 1 -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <!-- Project Card 1: Fujitec Pricing Tool -->
+  <article class="glass-card rounded-2xl overflow-hidden group">
+    <div class="h-48 relative overflow-hidden"
+         style="background: linear-gradient(135deg, rgba(20,184,166,0.7), rgba(31,41,55,0.7)), url('images/Fujitec-pricing.png') center/cover;">
+      <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div class="flex gap-4">
+          <a href="images/Fujitec-pricing.png" target="_blank" rel="noopener noreferrer"
+             class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition">
+            <i class="fas fa-eye"></i>
+          </a>
+        </div>
+      </div>
+      <div class="absolute bottom-4 left-4">
+        <span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-semibold">Internal Tool</span>
+      </div>
+    </div>
+    <a href="images/Fujitec-pricing.png" target="_blank" rel="noopener noreferrer" class="block cursor-pointer">
+      <div class="p-6">
+        <h3 class="text-xl font-bold mb-2 group-hover:text-brand-500 transition">Fujitec Pricing Tool</h3>
+        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">
+          Automated quote generation system for elevator components that reduced manual effort and improved pricing accuracy for the sales team.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2 py-1 rounded-full bg-brand-100 text-brand-800 dark:bg-brand-900/30 dark:text-brand-200 text-xs">Excel</span>
+          <span class="px-2 py-1 rounded-full bg-brand-100 text-brand-800 dark:bg-brand-900/30 dark:text-brand-200 text-xs">VBA</span>
+          <span class="px-2 py-1 rounded-full bg-brand-100 text-brand-800 dark:bg-brand-900/30 dark:text-brand-200 text-xs">Python</span>
+        </div>
+      </div>
+    </a>
+  </article>
+
+  <!-- Project Card 2: Software Design Tool -->
+  <article class="glass-card rounded-2xl overflow-hidden group">
+    <div class="h-48 relative overflow-hidden"
+         style="background: linear-gradient(135deg, rgba(16,185,129,0.7), rgba(59,130,246,0.7)), url('images/Software-design.png') center/cover;">
+      <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div class="flex gap-4">
+          <a href="images/Software-design.png" target="_blank" rel="noopener noreferrer"
+             class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition">
+            <i class="fas fa-eye"></i>
+          </a>
+        </div>
+      </div>
+      <div class="absolute bottom-4 left-4">
+        <span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-semibold">Development Tool</span>
+      </div>
+    </div>
+    <a href="images/Software-design.png" target="_blank" rel="noopener noreferrer" class="block cursor-pointer">
+      <div class="p-6">
+        <h3 class="text-xl font-bold mb-2 group-hover:text-brand-500 transition">Software Design Tool</h3>
+        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">
+          Template-driven design generator for engineering teams with advanced validation and versioning capabilities.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2 py-1 rounded-full bg-accent-100 text-accent-800 dark:bg-accent-900/30 dark:text-accent-200 text-xs">Python</span>
+          <span class="px-2 py-1 rounded-full bg-accent-100 text-accent-800 dark:bg-accent-900/30 dark:text-accent-200 text-xs">Pandas</span>
+          <span class="px-2 py-1 rounded-full bg-accent-100 text-accent-800 dark:bg-accent-900/30 dark:text-accent-200 text-xs">Tkinter</span>
+        </div>
+      </div>
+    </a>
+  </article>
+
+  <!-- Project Card 3: Data Analytics Dashboard, SafeRoute -->
+  <article class="glass-card rounded-2xl overflow-hidden group">
+    <div class="h-48 relative overflow-hidden"
+         style="background: linear-gradient(135deg, rgba(139,92,246,0.7), rgba(124,58,237,0.7)), url('images/SR.png') center/cover;">
+      <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div class="flex gap-4">
+          <a href="images/Saferoute.pdf" target="_blank" rel="noopener noreferrer"
+             class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition">
+            <i class="fas fa-eye"></i>
+          </a>
+        </div>
+      </div>
+      <div class="absolute bottom-4 left-4">
+        <span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-semibold">Analytics</span>
+      </div>
+    </div>
+    <a href="images/Saferoute.pdf" target="_blank" rel="noopener noreferrer" class="block cursor-pointer">
+      <div class="p-6">
+        <h3 class="text-xl font-bold mb-2 group-hover:text-brand-500 transition">Data Analytics Dashboard, SafeRoute</h3>
+        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">
+          SafeRoute addresses real-world safety challenges by applying structured project planning, risk analysis, stakeholder management, and change management principles.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2 py-1 rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-200 text-xs">Tableau</span>
+          <span class="px-2 py-1 rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-200 text-xs">Python</span>
+          <span class="px-2 py-1 rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-200 text-xs">SQL</span>
+        </div>
+      </div>
+    </a>
+  </article>
+
+  <!-- Project Card 4: Face Touch Detector -->
+  <article class="glass-card rounded-2xl overflow-hidden group">
+    <div class="h-48 relative overflow-hidden"
+         style="background: linear-gradient(135deg, rgba(34,197,94,0.7), rgba(22,163,74,0.7)), url('images/face.png') center/cover;">
+      <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div class="flex gap-4">
+          <a href="images/face.png" target="_blank" rel="noopener noreferrer"
+             class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition">
+            <i class="fas fa-eye"></i>
+          </a>
+        </div>
+      </div>
+      <div class="absolute bottom-4 left-4">
+        <span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-semibold">ML Model</span>
+      </div>
+    </div>
+    <a href="images/face.png" target="_blank" rel="noopener noreferrer" class="block cursor-pointer">
+      <div class="p-6">
+        <h3 class="text-xl font-bold mb-2 group-hover:text-brand-500 transition">Face Touch Detector</h3>
+        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">
+          Machine learning model to detect face touching behavior for health safety monitoring and alerting systems.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-200 text-xs">Python</span>
+          <span class="px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-200 text-xs">OpenCV</span>
+          <span class="px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-200 text-xs">TensorFlow</span>
+        </div>
+      </div>
+    </a>
+  </article>
+
+  <!-- Project Card 5: Wireshark Network Analysis -->
+  <article class="glass-card rounded-2xl overflow-hidden group">
+    <div class="h-48 relative overflow-hidden"
+         style="background: linear-gradient(135deg, rgba(59,130,246,0.7), rgba(37,99,235,0.7)), url('images/Wireshark.png') center/cover;">
+      <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div class="flex gap-4">
+          <a href="images/Wireshark.png" target="_blank" rel="noopener noreferrer"
+             class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition">
+            <i class="fas fa-eye"></i>
+          </a>
+        </div>
+      </div>
+      <div class="absolute bottom-4 left-4">
+        <span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-semibold">Network</span>
+      </div>
+    </div>
+    <a href="images/Wireshark.png" target="_blank" rel="noopener noreferrer" class="block cursor-pointer">
+      <div class="p-6">
+        <h3 class="text-xl font-bold mb-2 group-hover:text-brand-500 transition">Wireshark Network Analysis</h3>
+        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">
+          Comprehensive packet capture and analysis for anomaly detection, performance tuning, and security monitoring.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-200 text-xs">Wireshark</span>
+          <span class="px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-200 text-xs">Python</span>
+          <span class="px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-200 text-xs">Networking</span>
+        </div>
+      </div>
+    </a>
+  </article>
+
+  <!-- Project Card 6: Pesticides Spraying Drone -->
+  <article class="glass-card rounded-2xl overflow-hidden group">
+    <div class="h-48 relative overflow-hidden"
+         style="background: linear-gradient(135deg, rgba(249,115,22,0.7), rgba(234,88,12,0.7)), url('images/drone (1).png') center/cover;">
+      <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div class="flex gap-4">
+          <a href="images/drone (1).png" target="_blank" rel="noopener noreferrer"
+             class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition">
+            <i class="fas fa-eye"></i>
+          </a>
+        </div>
+      </div>
+      <div class="absolute bottom-4 left-4">
+        <span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-semibold">IoT</span>
+      </div>
+    </div>
+    <a href="images/drone (1).png" target="_blank" rel="noopener noreferrer" class="block cursor-pointer">
+      <div class="p-6">
+        <h3 class="text-xl font-bold mb-2 group-hover:text-brand-500 transition">Pesticides Spraying Drone</h3>
+        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">
+          Automated drone system for efficient agricultural pesticide application with GPS navigation and spray control.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2 py-1 rounded-full bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-200 text-xs">IoT</span>
+          <span class="px-2 py-1 rounded-full bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-200 text-xs">Python</span>
+          <span class="px-2 py-1 rounded-full bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-200 text-xs">Hardware</span>
+        </div>
+      </div>
+    </a>
+  </article>
 </div>
-</div>
-<div class="lg:w-1/2 flex justify-center">
-<div class="relative">
-<img src="images/profile-main.jpg" 
-     alt="Amirtha Varshini Padmanabhan" 
-     class="profile-image animate-fade-in"
-     onerror="this.src='images/AV5.jpg'">
-<div class="absolute -bottom-4 -right-4 w-20 h-20 bg-pink-500 rounded-full flex items-center justify-center shadow-lg">
-<span class="text-2xl">💻</span>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+
+<!-- Certifications Section -->
+<section id="certifications" class="border-t border-slate-200 dark:border-slate-800 py-20 bg-slate-50 dark:bg-slate-900/50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="text-center mb-16">
+            <span class="text-brand-600 dark:text-brand-400 text-sm font-semibold tracking-wider uppercase">
+                Certifications
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-bold mt-2 mb-4">
+                Professional Credentials
+            </h2>
+            <p class="text-slate-600 dark:text-slate-400">
+                Industry-recognized certifications that validate my expertise
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- ARIS Modeler Professional -->
+            <a href="https://www.credly.com/badges/509a07a8-dd97-4e80-be98-1be6458424f0/public_url"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="block transform transition hover:scale-[1.02]">
+
+                <div class="cert-badge p-8 rounded-2xl text-white h-full">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-16 h-16 rounded-xl bg-white/20 flex items-center justify-center">
+                            <i class="fas fa-certificate text-3xl"></i>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-white/20 text-xs font-semibold">
+                            Professional
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">
+                        Certified ARIS Modeler Professional
+                    </h3>
+                    <p class="text-white/80 text-sm mb-4">
+                        Advanced expertise in business process modeling, analysis, and optimization using ARIS platform.
+                    </p>
+                    <div class="flex items-center text-xs text-white/60">
+                        <i class="fas fa-award mr-2"></i>
+                        <span>Software AG</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- ARIS Modeler Associate -->
+            <a href="https://www.credly.com/badges/001457a1-f4c7-44ce-9a70-0c6f86d6b6f5/public_url"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="block transform transition hover:scale-[1.02]">
+
+                <div class="cert-badge p-8 rounded-2xl text-white h-full">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-16 h-16 rounded-xl bg-white/20 flex items-center justify-center">
+                            <i class="fas fa-certificate text-3xl"></i>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-white/20 text-xs font-semibold">
+                            Associate
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">
+                        Certified ARIS Modeler Associate
+                    </h3>
+                    <p class="text-white/80 text-sm mb-4">
+                        Foundation-level certification in business process management and ARIS modeling fundamentals.
+                    </p>
+                    <div class="flex items-center text-xs text-white/60">
+                        <i class="fas fa-award mr-2"></i>
+                        <span>Software AG</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Azure Microservices -->
+            <a href="https://lnkd.in/geneXH_D"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="block transform transition hover:scale-[1.02]">
+
+                <div class="cert-badge p-8 rounded-2xl text-white h-full">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-16 h-16 rounded-xl bg-white/20 flex items-center justify-center">
+                            <i class="fab fa-microsoft text-3xl"></i>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-white/20 text-xs font-semibold">
+                            Advanced
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">
+                        Advanced Azure Microservices with .NET
+                    </h3>
+                    <p class="text-white/80 text-sm mb-4">
+                        Advanced skills in building scalable microservices architecture using Azure cloud services and .NET framework.
+                    </p>
+                    <div class="flex items-center text-xs text-white/60">
+                        <i class="fas fa-cloud mr-2"></i>
+                        <span>Microsoft Azure</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
 </section>
 
-<!-- About Section -->
-<section id="about-section" class="py-20 about-bg">
-<div class="container mx-auto px-4">
-<div class="text-center mb-16">
-<span class="text-teal-400 text-lg">About</span>
-<h2 class="text-4xl font-bold mt-2 mb-4">About Me</h2>
-</div>
-<div class="max-w-6xl mx-auto">
-<div class="flex flex-col lg:flex-row items-center gap-12">
-<div class="lg:w-1/3">
-<div class="relative">
-<img src="images/about-me.jpg"
-     alt="About Amirtha Varshini"
-     class="w-80 h-96 rounded-2xl object-cover shadow-2xl"
-     onerror="this.src='images/profile-pic.jpg'">
-<div class="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full opacity-20"></div>
-<div class="absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full opacity-20"></div>
-</div>
-</div>
-<div class="lg:w-2/3">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-<div class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-blur-sm">
-<h4 class="text-teal-400 font-semibold mb-2">🎓 Education</h4>
-<p class="text-sm">Master's in MIS at University of Illinois Springfield</p>
-</div>
-<div class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-blur-sm">
-<h4 class="text-teal-400 font-semibold mb-2">💼 Experience</h4>
-<p class="text-sm">Software Engineer at Fujitec India</p>
-</div>
-<div class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-blur-sm">
-<h4 class="text-teal-400 font-semibold mb-2">🌟 Passion</h4>
-<p class="text-sm">Data Analytics & Business Intelligence</p>
-</div>
-<div class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-blur-sm">
-<h4 class="text-teal-400 font-semibold mb-2">📍 Location</h4>
-<p class="text-sm">Chicago, Illinois, USA</p>
-</div>
-</div>
-<p class="text-lg leading-relaxed mb-8">
-I am currently pursuing my Master's in Management Information Systems at the University of Illinois Springfield.
-Previously, I worked as a Software Engineer at Fujitec India, where I developed pricing and design tools.
-Soon, I will be joining the Illinois Department of Healthcare and Family Services as a Data Analytics Intern
-through the GPSI program. I am passionate about leveraging data to uncover insights and drive impactful decision-making.
-</p>
-<div class="text-center lg:text-left">
-    <h3 class="text-teal-400 text-xl mb-2">Life Philosophy</h3>
-    <h4 class="text-2xl font-semibold text-blue-400 single-quote-fade">Aut viam inveniam aut faciam</h4>
-    <p class="text-gray-300 mt-2 single-quote-fade">I shall either find a way or make one</p>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+    
+  <!-- Gallery Section -->
+<section id="gallery-section" class="border-t border-slate-200 dark:border-slate-800 py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
+    <div class="text-center mb-16">
+      <span class="text-teal-400 text-lg">Gallery</span>
+      <h2 class="text-4xl font-bold mt-2 mb-4">Moments & Memories</h2>
+      <p class="text-slate-600 dark:text-slate-400">A glimpse into my journey, achievements, and experiences</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <!-- Image 1 -->
+      <button class="group relative aspect-[4/3] rounded-xl overflow-hidden"
+        onclick="openLightbox('images/graduation-ceremony.jpg', 'Graduation Ceremony')">
+        <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          src="images/graduation-ceremony.jpg"
+          alt="Graduation Ceremony"
+          onerror="this.src='images/placeholder1.jpg'">
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <i class="fas fa-search-plus text-white text-2xl" aria-hidden="true"></i>
+        </div>
+      </button>
+
+      <!-- Image 2 -->
+      <button class="group relative aspect-[4/3] rounded-xl overflow-hidden"
+        onclick="openLightbox('images/work-team.jpg', 'Work Team')">
+        <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          src="images/work-team.jpg"
+          alt="Work Team"
+          onerror="this.src='images/placeholder2.jpg'">
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <i class="fas fa-search-plus text-white text-2xl" aria-hidden="true"></i>
+        </div>
+      </button>
+
+      <!-- Image 3 -->
+      <button class="group relative aspect-[4/3] rounded-xl overflow-hidden"
+        onclick="openLightbox('images/conference.jpg', 'Tech Conference')">
+        <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          src="images/conference.jpg"
+          alt="Tech Conference"
+          onerror="this.src='images/placeholder3.jpg'">
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <i class="fas fa-search-plus text-white text-2xl" aria-hidden="true"></i>
+        </div>
+      </button>
+
+      <!-- Image 4 -->
+      <button class="group relative aspect-[4/3] rounded-xl overflow-hidden"
+        onclick="openLightbox('images/project-demo.jpg', 'Project Demo')">
+        <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          src="images/project-demo.jpg"
+          alt="Project Demo"
+          onerror="this.src='images/placeholder4.jpg'">
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <i class="fas fa-search-plus text-white text-2xl" aria-hidden="true"></i>
+        </div>
+      </button>
+
+      <!-- Image 5 -->
+      <button class="group relative aspect-[4/3] rounded-xl overflow-hidden"
+        onclick="openLightbox('images/university-life.jpg', 'University Life')">
+        <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          src="images/university-life.jpg"
+          alt="University Life"
+          onerror="this.src='images/placeholder5.jpg'">
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <i class="fas fa-search-plus text-white text-2xl" aria-hidden="true"></i>
+        </div>
+      </button>
+
+      <!-- Image 6 -->
+      <button class="group relative aspect-[4/3] rounded-xl overflow-hidden"
+        onclick="openLightbox('images/achievement.jpg', 'Achievement')">
+        <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          src="images/achievement.jpg"
+          alt="Achievement"
+          onerror="this.src='images/placeholder6.jpg'">
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <i class="fas fa-search-plus text-white text-2xl" aria-hidden="true"></i>
+        </div>
+      </button>
+
+      <!-- Image 7 -->
+      <button class="group relative aspect-[4/3] rounded-xl overflow-hidden"
+        onclick="openLightbox('images/ceremony.jpg', 'Ceremony')">
+        <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          src="images/ceremony.jpg"
+          alt="Ceremony"
+          onerror="this.src='images/placeholder7.jpg'">
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <i class="fas fa-search-plus text-white text-2xl" aria-hidden="true"></i>
+        </div>
+      </button>
+
+      <!-- Image 8 -->
+      <button class="group relative aspect-[4/3] rounded-xl overflow-hidden"
+        onclick="openLightbox('images/PIC.jpeg', 'Personal Pic')">
+        <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          src="images/PIC.jpeg"
+          alt="Personal Pic"
+          onerror="this.src='images/placeholder8.jpg'">
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <i class="fas fa-search-plus text-white text-2xl" aria-hidden="true"></i>
+        </div>
+      </button>
+    </div>
+  </div>
 </section>
 
-<!-- Services Section -->
-<section id="services-section" class="py-20">
-<div class="container mx-auto px-4">
-<div class="text-center mb-16">
-<span class="text-teal-400 text-lg">What I Do</span>
-<h2 class="text-4xl font-bold mt-2 mb-4">Strategy, design and a bit of magic</h2>
-</div>
-
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="text-center">
-<div class="services-1">
-<span class="icon">
-<i class="fas fa-search"></i>
-</span>
-<div class="desc">
-<h3 class="mb-5"><a href="#">Exploring</a></h3>
-<h4>Machine Learning</h4>
-<h4>Human Psychology</h4>
-<h4>Vacation destinations</h4>
-</div>
-</div>
-</div>
-<div class="text-center">
-<div class="services-1">
-<span class="icon">
-<i class="fas fa-flask"></i>
-</span>
-<div class="desc">
-<h3 class="mb-5"><a href="#">Creating</a></h3>
-<h4>Community Network</h4>
-<h4>Android Apps</h4>
-<h4>Websites</h4>
-</div>
-</div>
-</div>
-<div class="text-center">
-<div class="services-1">
-<span class="icon">
-<i class="fas fa-lightbulb"></i>
-</span>
-<div class="desc">
-<h3 class="mb-5"><a href="#">Learning</a></h3>
-<h4>Cloud Support</h4>
-<h4>Design Sprints</h4>
-<h4>AIML</h4>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Counter Section -->
-<section class="counter-section py-20" id="counter">
-<div class="container mx-auto px-4">
-<div class="colorlib-counters" style="background-image: url('images/background.jpg'); border-radius: 10px;">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-<div class="text-center counter-margin">
-<span class="colorlib-counter-label">Cups of coffee</span>
-<div class="counter" data-count="35">0</div>
-</div>
-<div class="text-center counter-margin">
-<span class="colorlib-counter-label">Projects</span>
-<div class="counter" data-count="7">0</div>
-</div>
-<div class="text-center counter-margin">
-<span class="colorlib-counter-label">Events</span>
-<div class="counter" data-count="10">0</div>
-</div>
-<div class="text-center counter-margin">
-<span class="colorlib-counter-label">Lines of Code</span>
-<div class="counter" data-count="40000">0</div>
-</div>
-</div>
-</div>
-</div>
+<!-- Lightbox dialog -->
+<dialog id="lightbox" class="p-0 rounded-2xl w-[min(92vw,900px)] bg-transparent z-50">
+  <div class="relative">
+    <img id="lightboxImg" src="" alt="Expanded gallery image" class="w-full h-auto rounded-2xl"/>
+    <button class="absolute top-3 right-3 bg-black/50 text-white rounded-full w-10 h-10 grid place-items-center hover:bg-black/70 transition"
+            onclick="closeLightbox()" aria-label="Close">
+      <i class="fas fa-times" aria-hidden="true"></i>
+    </button>
+  </div>
+</dialog>
 
 <script>
-
-// Hero background image rotation
-document.addEventListener('DOMContentLoaded', function() {
-    const heroSection = document.getElementById('home-section');
-    const images = [
-        'images/AV1.jpg',
-        'images/AV2.jpg', 
-        'images/AV3.webp',
-        'images/AV4.jpg'
-    ];
-    let currentImageIndex = 0;
-    
-    function changeHeroBackground() {
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-        const newImage = images[currentImageIndex];
-        heroSection.style.backgroundImage = `linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(31, 41, 55, 0.8)), url('${newImage}')`;
-    }
-    
-    // Change image every 3 seconds
-    setInterval(changeHeroBackground, 3000);
-});
-
-
-// Counter Animation Function
-function animateCounters() {
-    const counters = document.querySelectorAll('.counter');
-    const speed = 200; // The lower the slower
-
-    counters.forEach(counter => {
-        const animate = () => {
-            const value = +counter.getAttribute('data-count');
-            const data = +counter.innerText;
-            
-            const time = value / speed;
-            
-            if (data < value) {
-                counter.innerText = Math.ceil(data + time);
-                setTimeout(animate, 1);
-            } else {
-                counter.innerText = value.toLocaleString(); // Add comma formatting for large numbers
-            }
-        }
-        animate();
-    });
+function openLightbox(src, alt) {
+  const img = document.getElementById('lightboxImg');
+  img.src = src;
+  img.alt = alt || "Expanded gallery image";
+  document.getElementById('lightbox').showModal();
 }
 
-// Intersection Observer for scroll-triggered animation
-function createCounterObserver() {
-    const counterSection = document.getElementById('counter');
-    let hasAnimated = false;
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !hasAnimated) {
-                animateCounters();
-                hasAnimated = true; // Prevent re-animation
-            }
-        });
-    }, {
-        threshold: 0.5 // Trigger when 50% of the section is visible
-    });
-
-    if (counterSection) {
-        observer.observe(counterSection);
-    }
+function closeLightbox() {
+  document.getElementById('lightbox').close();
 }
-
-// Enhanced counter animation with easing
-function enhancedAnimateCounters() {
-    const counters = document.querySelectorAll('.counter');
-    
-    counters.forEach(counter => {
-        const target = +counter.getAttribute('data-count');
-        const duration = 2000; // 2 seconds
-        const startTime = performance.now();
-        const startValue = 0;
-
-        function updateCounter(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            
-            // Easing function (ease-out)
-            const easeOut = 1 - Math.pow(1 - progress, 3);
-            
-            const current = Math.floor(startValue + (target - startValue) * easeOut);
-            
-            // Format numbers with commas for readability
-            if (target >= 1000) {
-                counter.innerText = current.toLocaleString();
-            } else {
-                counter.innerText = current;
-            }
-            
-            if (progress < 1) {
-                requestAnimationFrame(updateCounter);
-            } else {
-                counter.innerText = target.toLocaleString();
-            }
-        }
-        
-        requestAnimationFrame(updateCounter);
-    });
-}
-
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Create observer for counter animation
-    const counterSection = document.getElementById('counter');
-    let hasAnimated = false;
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !hasAnimated) {
-                // Add a small delay for better effect
-                setTimeout(() => {
-                    enhancedAnimateCounters();
-                }, 200);
-                hasAnimated = true;
-            }
-        });
-    }, {
-        threshold: 0.3, // Trigger when 30% of the section is visible
-        rootMargin: '0px 0px -50px 0px' // Trigger a bit before the section is fully visible
-    });
-
-    if (counterSection) {
-        observer.observe(counterSection);
-    }
-});
-
-// Optional: Reset animation when page is refreshed or revisited
-window.addEventListener('beforeunload', function() {
-    const counters = document.querySelectorAll('.counter');
-    counters.forEach(counter => {
-        counter.innerText = '0';
-    });
-});
 </script>
 
-</section>
 
-<!-- Skills Section -->
-<section id="skills-section" class="py-20">
-<div class="container mx-auto px-4">
-<div class="text-center mb-16">
-<span class="text-teal-400 text-lg">Skills</span>
-<h2 class="text-4xl font-bold mt-2 mb-4">Technical Expertise</h2>
-<p class="text-gray-300">Always ready to try hands-on new and emerging technologies</p>
-</div>
+    <!-- Contact Section -->
+    <section id="contact" class="border-t border-slate-200 dark:border-slate-800 py-20 bg-slate-50 dark:bg-slate-900/50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <span class="text-brand-600 dark:text-brand-400 text-sm font-semibold tracking-wider uppercase">Contact</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mt-2 mb-4">Let's Connect</h2>
+                <p class="text-slate-600 dark:text-slate-400">Have a project or opportunity in mind? I'd love to hear from you.</p>
+            </div>
 
-<div class="max-w-6xl mx-auto">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-<div class="text-center">
-<div class="skill-icon mx-auto mb-4">
-<img src="images/python-icon.png" alt="Python" class="w-full h-full object-contain" onerror="this.parentElement.innerHTML='🐍'">
-</div>
-<h3 class="text-xl font-semibold mb-2">Python</h3>
-<p class="text-gray-400">Data Analysis, Machine Learning</p>
-</div>
-<div class="text-center">
-<div class="skill-icon mx-auto mb-4">
-<img src="images/java-icon.png" alt="Java" class="w-full h-full object-contain" onerror="this.parentElement.innerHTML='☕'">
-</div>
-<h3 class="text-xl font-semibold mb-2">Linux</h3>
-<p class="text-gray-400">Backend Development</p>
-</div>
-<div class="text-center">
-<div class="skill-icon mx-auto mb-4">
-<img src="images/tableau-icon.png" alt="Tableau" class="w-full h-full object-contain" onerror="this.parentElement.innerHTML='📊'">
-</div>
-<h3 class="text-xl font-semibold mb-2">Tableau</h3>
-<p class="text-gray-400">Data Visualization</p>
-</div>
-</div>
+            <div class="max-w-4xl mx-auto">
+                <div class="glass-card p-8 md:p-12 rounded-2xl">
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6">Get In Touch</h3>
+                            <p class="text-slate-600 dark:text-slate-400 mb-8">Feel free to reach out for collaborations, discussing ideas, or just grabbing a virtual coffee!</p>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center">
+                                        <i class="fas fa-envelope text-brand-500 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-slate-500 dark:text-slate-400">Email</p>
+                                        <a href="mailto:varshujanu26@gmail.com" class="font-semibold hover:text-brand-500 transition">varshujanu26@gmail.com</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center">
+                                        <i class="fab fa-linkedin text-brand-500 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-slate-500 dark:text-slate-400">LinkedIn</p>
+                                        <a href="https://www.linkedin.com/in/amirtha-varshini-padmanabhan-b31146265/" target="_blank" class="font-semibold hover:text-brand-500 transition">Connect with me</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center">
+                                        <i class="fas fa-map-marker-alt text-brand-500 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-slate-500 dark:text-slate-400">Location</p>
+                                        <p class="font-semibold"> Illinois, USA</p>
+                                    </div>
+                                </div>
+                            </div>
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<div class="skill-item">
-<div class="flex justify-between mb-2">
-<span class="font-semibold">Python</span>
-<span>80%</span>
-</div>
-<div class="progress">
-<div class="progress-bar color-1" style="width:80%"></div>
-</div>
-</div>
+                            <div class="mt-8 flex gap-4">
+                                <a href="mailto:varshujanu26@gmail.com" class="inline-flex items-center gap-2 px-6 py-3 bg-brand-600 text-white rounded-xl hover:bg-brand-700 transition shadow-lg">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Send Message
+                                </a>
+                            </div>
+                        </div>
 
-<div class="skill-item">
-<div class="flex justify-between mb-2">
-<span class="font-semibold">HTML/CSS</span>
-<span>70%</span>
-</div>
-<div class="progress">
-<div class="progress-bar color-2" style="width:70%"></div>
-</div>
-</div>
+                        <div>
+                            <form method="POST" action="https://formspree.io/f/mqaldnyl" class="space-y-6">
+                                <div>
+                                    <input type="text" name="name" placeholder="Your Name" required
+                                           class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:outline-none focus:border-brand-500 transition">
+                                </div>
+                                <div>
+                                    <input type="email" name="_replyto" placeholder="Your Email" required
+                                           class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:outline-none focus:border-brand-500 transition">
+                                </div>
+                                <div>
+                                    <input type="text" name="subject" placeholder="Subject" required
+                                           class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:outline-none focus:border-brand-500 transition">
+                                </div>
+                                <div>
+                                    <textarea name="message" rows="4" placeholder="Your Message" required
+                                              class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:outline-none focus:border-brand-500 transition resize-none"></textarea>
+                                </div>
+                                <button type="submit"
+                                        class="w-full px-6 py-3 bg-gradient-to-r from-brand-600 to-accent-600 text-white rounded-xl hover:opacity-90 transition font-semibold shadow-lg">
+                                    Send Message <i class="fas fa-arrow-right ml-2"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="skill-item">
-<div class="flex justify-between mb-2">
-<span class="font-semibold">Tableau</span>
-<span>75%</span>
-</div>
-<div class="progress">
-<div class="progress-bar color-3" style="width:75%"></div>
-</div>
-</div>
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 py-12">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-center md:text-left">
+                    <a href="#home" class="text-2xl font-bold gradient-text">AV</a>
+                    <p class="text-slate-600 dark:text-slate-400 mt-2">Data Analyst & MIS Graduate Student</p>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="https://www.linkedin.com/in/amirtha-varshini-padmanabhan-b31146265/" target="_blank" class="text-slate-400 hover:text-brand-500 transition transform hover:scale-110">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="https://github.com/crazy816" target="_blank" class="text-slate-400 hover:text-brand-500 transition transform hover:scale-110">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="mailto:varshujanu26@gmail.com" class="text-slate-400 hover:text-brand-500 transition transform hover:scale-110">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">© <span id="year"></span> Amirtha Varshini Padmanabhan</p>
+                    <p class="text-slate-500 dark:text-slate-500 text-xs mt-1">Made with ❤️ and lots of ☕</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-<div class="skill-item">
-<div class="flex justify-between mb-2">
-<span class="font-semibold">Cloud Technologies</span>
-<span>65%</span>
-</div>
-<div class="progress">
-<div class="progress-bar color-4" style="width:65%"></div>
-</div>
-</div>
-
-<div class="skill-item">
-<div class="flex justify-between mb-2">
-<span class="font-semibold">C Language</span>
-<span>75%</span>
-</div>
-<div class="progress">
-<div class="progress-bar color-2" style="width:75%"></div>
-</div>
-</div>
-
-<div class="skill-item">
-<div class="flex justify-between mb-2">
-<span class="font-semibold">UI & UX</span>
-<span>60%</span>
-</div>
-<div class="progress">
-<div class="progress-bar color-6" style="width:60%"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Timeline Section -->
-<section id="timeline-section" class="py-20 bg-gray-800">
-<div class="container mx-auto px-4">
-<div class="text-center mb-16">
-<span class="text-teal-400 text-lg">Timeline</span>
-<h2 class="text-4xl font-bold mt-2 mb-4">My Journey So Far</h2>
-<p class="text-gray-300">All my academic and professional experience with milestones achieved</p>
-</div>
-
-<div class="roadmap-container max-w-6xl mx-auto">
-<!-- Desktop Timeline -->
-<div class="hidden lg:block relative">
-<!-- Main roadmap line -->
-<div class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-teal-400 via-blue-500 to-purple-500 h-full"></div>
-
-<!-- Timeline Items -->
-<div class="space-y-12">
-<!-- Current - Master's Degree -->
-<div class="roadmap-item flex items-center justify-center">
-<div class="w-1/2 pr-8 text-right">
-<div class="roadmap-card bg-gradient-to-r from-teal-500 to-blue-600 p-6 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300">
-<div class="flex items-center justify-between mb-4">
-<img src="images/uis-logo.jpg" alt="UIS" class="w-16 h-16 rounded-full object-cover border-4 border-white shadow-lg" onerror="this.src='images/university.jpeg'">
-<div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
-<span class="text-white text-sm font-semibold">CURRENT</span>
-</div>
-</div>
-
-<h3 class="text-2xl font-bold text-white mb-2">Master's in Management Information Systems</h3>
-<p class="text-blue-100 mb-4">Currently pursuing masters at University of Illinois Springfield. The curriculum offers a perfect blend of technical skills and business strategy, with courses in data analytics, cybersecurity, and systems design.</p>
-<div class="flex items-center text-white justify-end">
-<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-<path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
-</svg>
-<span class="font-semibold">January 2025 - Present</span>
-</div>
-</div>
-</div>
-<!-- Roadmap dot -->
-<div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-teal-400 rounded-full border-4 border-white shadow-lg z-10"></div>
-</div>
-
-<!-- Software Engineer -->
-<div class="roadmap-item flex items-center justify-center">
-<div class="w-1/2 pl-8">
-<div class="roadmap-card bg-gradient-to-r from-purple-500 to-pink-600 p-6 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300">
-<div class="flex items-center justify-between mb-4">
-<img src="images/fujitec-logo.webp" alt="Fujitec" class="w-16 h-16 rounded-full object-cover border-4 border-white shadow-lg" onerror="this.src='images/company.jpeg'">
-<div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
-<span class="text-white text-sm font-semibold">PROFESSIONAL</span>
-</div>
-</div>
-<h3 class="text-2xl font-bold text-white mb-2">Software Design Engineer</h3>
-<h4 class="text-pink-100 text-lg mb-3">Fujitec India</h4>
-<p class="text-pink-100 mb-4">Worked as Software Design Engineer at Fujitec India, a leading Japanese MNC. Developed a Software Design Tool that significantly improved team collaboration and version control.</p>
-<div class="flex items-center text-white">
-<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-<path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
-</svg>
-<span class="font-semibold">July 2023 - December 2024</span>
-</div>
-</div>
-</div>
-<!-- Roadmap dot -->
-<div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-purple-500 rounded-full border-4 border-white shadow-lg z-10"></div>
-</div>
-
-<!-- Internship -->
-<div class="roadmap-item flex items-center justify-center">
-<div class="w-1/2 pr-8 text-right">
-<div class="roadmap-card bg-gradient-to-r from-green-500 to-teal-600 p-6 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300">
-<div class="flex items-center justify-between mb-4">
-<img src="images/shiash-logo.jpeg" alt="Shiash" class="w-16 h-16 rounded-full object-cover border-4 border-white shadow-lg" onerror="this.src='images/internship.jpeg'">
-<div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
-<span class="text-white text-sm font-semibold">INTERNSHIP</span>
-</div>
-</div>
-<h3 class="text-2xl font-bold text-white mb-2">Software Development Intern</h3>
-<h4 class="text-green-100 text-lg mb-3">Shiash Info Solutions</h4>
-<p class="text-green-100 mb-4">Shiash Info Solutions is a startup company aimed for university students to help them build their mobile, web, machine learning, and cloud skills. A platform for students to learn and collaborate.</p>
-<div class="flex items-center text-white justify-end">
-<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-<path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
-</svg>
-<span class="font-semibold">December 2022 - January 2023</span>
-</div>
-</div>
-</div>
-<!-- Roadmap dot -->
-<div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow-lg z-10"></div>
-</div>
-
-<!-- Bachelor's Degree -->
-<div class="roadmap-item flex items-center justify-center">
-<div class="w-1/2 pl-8">
-<div class="roadmap-card bg-gradient-to-r from-blue-500 to-indigo-600 p-6 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300">
-<div class="flex items-center justify-between mb-4">
-<img src="images/anna-university-logo.webp" alt="Anna University" class="w-16 h-16 rounded-full object-cover border-4 border-white shadow-lg" onerror="this.src='images/graduation.jpeg'">
-<div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
-<span class="text-white text-sm font-semibold">EDUCATION</span>
-</div>
-</div>
-<h3 class="text-2xl font-bold text-white mb-2">Bachelor's in Electrical Engineering</h3>
-<h4 class="text-blue-100 text-lg mb-3">Anna University</h4>
-<p class="text-blue-100 mb-4">Completed B.Tech in Electrical Engineering from Anna University. Started exploring various opportunities in technology and software development. My 4-year journey exploring diverse opportunities.</p>
-<div class="flex items-center text-white">
-<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-<path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
-</svg>
-<span class="font-semibold">August 2019 - May 2023</span>
-</div>
-</div>
-</div>
-<!-- Roadmap dot -->
-<div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-blue-500 rounded-full border-4 border-white shadow-lg z-10"></div>
-</div>
-
-<!-- Starting Point -->
-<div class="roadmap-item flex items-center justify-center">
-<div class="w-1/2 pr-8 text-right">
-<div class="roadmap-card bg-gradient-to-r from-gray-600 to-gray-700 p-6 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300">
-<div class="flex items-center justify-center mb-4">
-<div class="w-16 h-16 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full flex items-center justify-center border-4 border-white shadow-lg">
-<span class="text-2xl">🚀</span>
-</div>
-</div>
-<h3 class="text-2xl font-bold text-white mb-2">The Journey Begins</h3>
-<p class="text-gray-200 mb-4">Started my journey in technology with a passion for learning and innovation. Every step has been a building block towards my current expertise in data analytics and software development.</p>
-<div class="flex items-center text-white justify-end">
-<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd"></path>
-</svg>
-<span class="font-semibold">2019</span>
-</div>
-</div>
-</div>
-<!-- Starting dot -->
-<div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full border-4 border-white shadow-lg z-10 flex items-center justify-center">
-<span class="text-white text-sm">🎯</span>
-</div>
-</div>
-</div>
-</div>
-
-<!-- Mobile Timeline -->
-<div class="lg:hidden space-y-8">
-<div class="relative pl-8">
-<div class="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-teal-400 to-purple-500"></div>
-
-<!-- Current -->
-<div class="relative mb-8">
-<div class="absolute -left-3 top-0 w-6 h-6 bg-teal-400 rounded-full border-4 border-white"></div>
-<div class="bg-gradient-to-r from-teal-500 to-blue-600 p-4 rounded-xl">
-<div class="flex items-center mb-3">
-<img src="images/uis-logo.jpg" alt="UIS" class="w-12 h-12 rounded-full mr-3" onerror="this.src='images/university.jpeg'">
-<span class="bg-white bg-opacity-20 px-2 py-1 rounded-full text-white text-xs">CURRENT</span>
-</div>
-<h3 class="text-lg font-bold text-white mb-2">Master's in MIS</h3>
-<p class="text-blue-100 text-sm mb-2">University of Illinois Springfield</p>
-<p class="text-white text-xs">January 2025 - Present</p>
-</div>
-</div>
-
-<!-- Professional -->
-<div class="relative mb-8">
-<div class="absolute -left-3 top-0 w-6 h-6 bg-purple-500 rounded-full border-4 border-white"></div>
-<div class="bg-gradient-to-r from-purple-500 to-pink-600 p-4 rounded-xl">
-<div class="flex items-center mb-3">
-<img src="images/fujitec-logo.webp" alt="Fujitec" class="w-12 h-12 rounded-full mr-3" onerror="this.src='images/company.jpeg'">
-<span class="bg-white bg-opacity-20 px-2 py-1 rounded-full text-white text-xs">PROFESSIONAL</span>
-</div>
-<h3 class="text-lg font-bold text-white mb-2">Software Design Engineer</h3>
-<p class="text-pink-100 text-sm mb-2">Fujitec India</p>
-<p class="text-white text-xs">July 2023 - December 2024</p>
-</div>
-</div>
-
-<!-- Internship -->
-<div class="relative mb-8">
-<div class="absolute -left-3 top-0 w-6 h-6 bg-green-500 rounded-full border-4 border-white"></div>
-<div class="bg-gradient-to-r from-green-500 to-teal-600 p-4 rounded-xl">
-<div class="flex items-center mb-3">
-<img src="images/shiash-logo.jpeg" alt="Shiash" class="w-12 h-12 rounded-full mr-3" onerror="this.src='images/internship.jpeg'">
-<span class="bg-white bg-opacity-20 px-2 py-1 rounded-full text-white text-xs">INTERNSHIP</span>
-</div>
-<h3 class="text-lg font-bold text-white mb-2">Software Development Intern</h3>
-<p class="text-green-100 text-sm mb-2">Shiash Info Solutions</p>
-<p class="text-white text-xs">December 2022 - January 2023</p>
-</div>
-</div>
-
-<!-- Education -->
-<div class="relative mb-8">
-<div class="absolute -left-3 top-0 w-6 h-6 bg-blue-500 rounded-full border-4 border-white"></div>
-<div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-4 rounded-xl">
-<div class="flex items-center mb-3">
-<img src="images/anna-university-logo.webp" alt="Anna University" class="w-12 h-12 rounded-full mr-3" onerror="this.src='images/graduation.jpeg'">
-<span class="bg-white bg-opacity-20 px-2 py-1 rounded-full text-white text-xs">EDUCATION</span>
-</div>
-<h3 class="text-lg font-bold text-white mb-2">Bachelor's in Electrical Engineering</h3>
-<p class="text-blue-100 text-sm mb-2">Anna University</p>
-<p class="text-white text-xs">August 2019 - May 2023</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Projects Section -->
-<section id="projects-section" class="py-20">
-<div class="container mx-auto px-4">
-<div class="text-center mb-16">
-<span class="text-teal-400 text-lg">Portfolio</span>
-<h2 class="text-4xl font-bold mt-2 mb-4">My Projects</h2>
-<p class="text-gray-300">Some of the projects in my portfolio that I worked on</p>
-</div>
-
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<div class="project-card">
-<div class="project-image" style="background-image: url('images/pricing-tool.png');">
-<div class="project-overlay">
-<div class="text-center">
-<h3 class="text-xl font-bold text-white mb-2">Fujitec Pricing Tool</h3>
-<p class="text-gray-200">Internal Tool</p>
-</div>
-</div>
-</div>
-<div class="p-4">
-<h3 class="font-bold text-gray-800 mb-2">Fujitec Pricing Tool</h3>
-<p class="text-gray-600 text-sm">Developed an internal pricing tool for Fujitec India that streamlined the pricing process</p>
-</div>
-</div>
-
-<div class="project-card">
-<div class="project-image" style="background-image: url('images/design-tool.jpeg');">
-<div class="project-overlay">
-<div class="text-center">
-<h3 class="text-xl font-bold text-white mb-2">Software Design Tool</h3>
-<p class="text-gray-200">Development Tool</p>
-</div>
-</div>
-</div>
-<div class="p-4">
-<h3 class="font-bold text-gray-800 mb-2">Fujitec Software Design Tool</h3>
-<p class="text-gray-600 text-sm">Collaborative design and development platform for improved team workflow</p>
-</div>
-</div>
-
-<div class="project-card">
-<div class="project-image" style="background-image: url('images/drone-project.jpeg');">
-<div class="project-overlay">
-<div class="text-center">
-<h3 class="text-xl font-bold text-white mb-2">Pesticides Spraying Drone</h3>
-<p class="text-gray-200">Hardware Model</p>
-</div>
-</div>
-</div>
-<div class="p-4">
-<h3 class="font-bold text-gray-800 mb-2">Pesticides Spraying Drone</h3>
-<p class="text-gray-600 text-sm">Automated drone system for efficient agricultural pesticide application</p>
-</div>
-</div>
-
-<div class="project-card">
-<div class="project-image" style="background-image: url('images/face-detection.jpeg');">
-<div class="project-overlay">
-<div class="text-center">
-<h3 class="text-xl font-bold text-white mb-2">Face Touch Detector</h3>
-<p class="text-gray-200">ML Model</p>
-</div>
-</div>
-</div>
-<div class="p-4">
-<h3 class="font-bold text-gray-800 mb-2">Face Touch Detector</h3>
-<p class="text-gray-600 text-sm">Machine learning model to detect face touching for health safety</p>
-</div>
-</div>
-
-<div class="project-card">
-<div class="project-image" style="background-image: url('images/network-analysis.jpeg');">
-<div class="project-overlay">
-<div class="text-center">
-<h3 class="text-xl font-bold text-white mb-2">Wireshark Network Analysis</h3>
-<p class="text-gray-200">Network Project</p>
-</div>
-</div>
-</div>
-<div class="p-4">
-<h3 class="font-bold text-gray-800 mb-2">Wireshark Project</h3>
-<p class="text-gray-600 text-sm">Network analysis project for Data Communication and Networking course</p>
-</div>
-</div>
-
-<div class="project-card">
-<div class="project-image" style="background-image: url('images/data-analytics.jpeg');">
-<div class="project-overlay">
-<div class="text-center">
-<h3 class="text-xl font-bold text-white mb-2">Data Analytics Dashboard</h3>
-<p class="text-gray-200">Analytics Project</p>
-</div>
-</div>
-</div>
-<div class="p-4">
-<h3 class="font-bold text-gray-800 mb-2">Business Intelligence Dashboard</h3>
-<p class="text-gray-600 text-sm">Interactive dashboard for business data visualization and insights</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Gallery Section -->
-<section id="gallery-section" class="py-20 bg-gray-800">
-<div class="container mx-auto px-4">
-<div class="text-center mb-16">
-<span class="text-teal-400 text-lg">Gallery</span>
-<h2 class="text-4xl font-bold mt-2 mb-4">Moments & Memories</h2>
-<p class="text-gray-300">A glimpse into my journey, achievements, and experiences</p>
-</div>
-
-<div class="gallery-grid">
-<div class="gallery-item">
-<img src="images/graduation-ceremony.jpg" alt="Graduation Ceremony" onerror="this.src='images/placeholder1.jpg'">
-</div>
-<div class="gallery-item">
-<img src="images/work-team.jpg" alt="Work Team" onerror="this.src='images/placeholder2.jpg'">
-</div>
-<div class="gallery-item">
-<img src="images/conference.jpg" alt="Tech Conference" onerror="this.src='images/placeholder3.jpg'">
-</div>
-<div class="gallery-item">
-<img src="images/project-demo.jpg" alt="Project Demo" onerror="this.src='images/placeholder4.jpg'">
-</div>
-<div class="gallery-item">
-<img src="images/university-life.jpg" alt="University Life" onerror="this.src='images/placeholder5.jpg'">
-</div>
-<div class="gallery-item">
-<img src="images/achievement.jpg" alt="Achievement" onerror="this.src='images/placeholder6.jpg'">
-</div>
-</div>
-</div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact-section" class="py-20 bg-gradient-to-r from-gray-800 to-gray-900">
-<div class="container mx-auto px-4">
-<div class="text-center mb-16">
-<span class="text-teal-400 text-lg">Contact</span>
-<h2 class="text-4xl font-bold mt-2 mb-4">Let's Connect 👋</h2>
-</div>
-
-<div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-<div class="bg-white p-8 rounded-2xl shadow-2xl">
-<form method="POST" action="https://formspree.io/f/mqaldnyl" class="space-y-6">
-<div>
-<input type="text" name="name" placeholder="Your Name" required
-class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-teal-500 text-gray-800">
-</div>
-<div>
-<input type="email" name="_replyto" placeholder="Your Email" required
-class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-teal-500 text-gray-800">
-</div>
-<div>
-<input type="url" name="linkedin" placeholder="Your LinkedIn URL"
-class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-teal-500 text-gray-800">
-</div>
-<div>
-<input type="text" name="subject" placeholder="Subject" required
-class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-teal-500 text-gray-800">
-</div>
-<div>
-<textarea name="message" rows="5" placeholder="Message" required
-class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-teal-500 text-gray-800"></textarea>
-</div>
-<button type="submit"
-class="w-full bg-pink-500 text-white py-4 rounded-lg hover:bg-teal-400 transition font-semibold">
-Send Message
-</button>
-</form>
-</div>
-
-<div class="flex items-center justify-center">
-<div class="text-center">
-<div class="mb-8">
-<img src="images/contact-avatar.jpeg" alt="Contact" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-teal-400" onerror="this.src='images/contact-avatar.jpeg'">
-</div>
-<h3 class="text-3xl font-bold mb-4">Get In Touch</h3>
-<p class="text-gray-300 mb-8 text-lg">Feel free to reach out for collaborations, discussing ideas, or just grabbing a cup of coffee!</p>
-<div class="flex justify-center space-x-6 mb-8">
-<a href="https://www.linkedin.com/in/amirtha-varshini-padmanabhan-b31146265/"
-target="_blank"
-class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-500 transition flex items-center space-x-2">
-<i class="fab fa-linkedin-in"></i>
-<span>LinkedIn</span>
-</a>
-<a href="mailto:varshujanu26@gmail.com"
-   class="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-500 transition flex items-center space-x-2">
-    <i class="fas fa-envelope"></i>
-    <span>Email</span>
-</a>
-</div>
-<div class="space-y-2">
-<p class="text-gray-300 flex items-center justify-center"><span class="mr-2">📍</span> Chicago, Illinois, United States</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Footer -->
-<footer class="bg-gray-900 py-12">
-<div class="container mx-auto px-4">
-<div class="text-center">
-<div class="mb-6">
-<img src="images/logo.png" alt="AV" class="w-12 h-12 mx-auto rounded-full mb-4" onerror="this.style.display='none'">
-<h3 class="text-2xl font-bold text-white mb-2">Amirtha Varshini Padmanabhan</h3>
-<p class="text-gray-400">Data Analyst & MIS Graduate Student</p>
-</div>
-<div class="flex justify-center space-x-6 mb-8">
-<a href="https://www.linkedin.com/in/amirtha-varshini-padmanabhan-b31146265/" target="_blank" class="text-gray-400 hover:text-teal-400 transition">
-<i class="fab fa-linkedin-in text-2xl"></i>
-</a>
-<a href="https://www.instagram.com/crazy_varshu_/" target="_blank" class="text-gray-400 hover:text-teal-400 transition">
-<i class="fab fa-instagram text-2xl"></i>
-</a>
-<a href="mailto:varshujanu26@gmail.com" class="text-gray-400 hover:text-teal-400 transition">
-    <i class="fas fa-envelope text-2xl"></i>
-</a>
-</div>
-<div class="border-t border-gray-700 pt-8">
-<p class="text-gray-400 text-sm">
-© 2025 Amirtha Varshini Padmanabhan. All rights reserved. | Made with ❤️ and lots of ☕
-</p>
-</div>
-</div>
-</div>
-</footer>
-
-<!-- JavaScript -->
-<script>
-
-// Theme Toggle Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const themeToggle = document.getElementById('themeToggle');
-    const themeToggleMobile = document.getElementById('themeToggleMobile');
-    const body = document.body;
-    
-    // Check for saved theme preference or default to 'dark'
-    const currentTheme = localStorage.getItem('theme') || 'dark';
-    body.setAttribute('data-theme', currentTheme);
-    
-    function toggleTheme() {
-        const currentTheme = body.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
-        body.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-    }
-    
-    // Add event listeners to both toggle buttons
-    themeToggle.addEventListener('click', toggleTheme);
-    themeToggleMobile.addEventListener('click', toggleTheme);
-    
-    // Mobile menu functionality
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    mobileMenuBtn.addEventListener('click', function() {
-        mobileMenu.classList.toggle('hidden');
-    });
-    
-    // Close mobile menu when clicking on links
-    const mobileLinks = mobileMenu.querySelectorAll('a');
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
+    <script>
+        // Theme toggle UI icons and persistence
+        const themeBtn = document.getElementById('themeToggle');
+        const sun = document.getElementById('icon-sun');
+        const moon = document.getElementById('icon-moon');
+        const setIcons = () => {
+            const dark = document.documentElement.classList.contains('dark');
+            sun.classList.toggle('hidden', !dark);
+            moon.classList.toggle('hidden', dark);
+        };
+        setIcons();
+        themeBtn.addEventListener('click', () => {
+            const el = document.documentElement;
+            const nowDark = !el.classList.contains('dark');
+            el.classList.toggle('dark', nowDark);
+            localStorage.setItem('theme', nowDark ? 'dark' : 'light');
+            setIcons();
         });
-    });
-    
-    // Counter Animation
-    function animateCounters() {
-        const counters = document.querySelectorAll('.counter');
-        
-        counters.forEach(counter => {
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        menuBtn.addEventListener('click', () => {
+            const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+            menuBtn.setAttribute('aria-expanded', String(!expanded));
+            mobileNav.classList.toggle('hidden');
+            if (!mobileNav.classList.contains('hidden')) {
+                mobileNav.classList.add('mobile-menu-enter');
+            }
+        });
+
+        // Close mobile menu when clicking on links
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.add('hidden');
+            });
+        });
+
+        // Footer year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Counter animation
+        const counters = document.querySelectorAll('.counter [data-count]');
+        const animateCounter = (counter) => {
             const target = parseInt(counter.getAttribute('data-count'));
-            const duration = 2000; // 2 seconds
-            const increment = target / (duration / 16); // 60fps
+            const duration = 2000;
+            const step = target / (duration / 16);
             let current = 0;
             
-            counter.classList.add('animating');
-            
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                    counter.classList.remove('animating');
+            const updateCounter = () => {
+                current += step;
+                if (current < target) {
+                    counter.textContent = Math.floor(current).toLocaleString();
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target.toLocaleString();
                 }
-                counter.textContent = Math.floor(current).toLocaleString();
-            }, 16);
-        });
-    }
-    
-    // Intersection Observer for counter animation
-    const counterSection = document.getElementById('counter');
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounters();
-                counterObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    if (counterSection) {
-        counterObserver.observe(counterSection);
-    }
-});
+            };
+            updateCounter();
+        };
 
-body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.navbar {
-  background-color: var(--bg-secondary) !important;
-  border-bottom: 1px solid var(--border-color);
-  transition: background-color 0.3s ease;
-}
-
-.navbar-dark .navbar-nav .nav-link {
-  color: var(--text-primary) !important;
-  transition: color 0.3s ease;
-}
-
-.navbar-dark .navbar-nav .nav-link:hover {
-  color: var(--accent-color) !important;
-}
-
-.navbar-dark .navbar-toggler {
-  border-color: var(--border-color);
-  color: var(--text-primary);
-}
-
-/* Theme Toggle Button Styles */
-/* Add these lines to fix theme variables in your existing <style> section */
-
-/* Fix for sections that need theme support */
-section {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-}
-
-#services-section {
-    background-color: var(--bg-primary) !important;
-}
-
-/* Fix card backgrounds in light theme */
-[data-theme="light"] .services-1 {
-    background: rgba(0, 0, 0, 0.05);
-    color: var(--text-primary);
-}
-
-[data-theme="light"] .timeline-item {
-    background: rgba(0, 0, 0, 0.05);
-    color: var(--text-primary);
-}
-
-/* Fix text colors in light theme */
-[data-theme="light"] h1,
-[data-theme="light"] h2,
-[data-theme="light"] h3,
-[data-theme="light"] h4,
-[data-theme="light"] p {
-    color: var(--text-primary) !important;
-}
-
-[data-theme="light"] .text-gray-300 {
-    color: var(--text-secondary) !important;
-}
-
-.theme-toggle {
-  position: relative;
-  width: 60px;
-  height: 30px;
-  background: var(--border-color);
-  border-radius: 50px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  border: none;
-  outline: none;
-  margin-left: 15px;
-}
-
-.theme-toggle:hover {
-  background: var(--accent-color);
-}
-
-.theme-toggle::before {
-  content: '';
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 24px;
-  height: 24px;
-  background: var(--text-primary);
-  border-radius: 50%;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-[data-theme="light"] .theme-toggle::before {
-  transform: translateX(30px);
-}
-
-.theme-toggle-icon {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 14px;
-  transition: opacity 0.3s ease;
-}
-
-.theme-toggle .sun-icon {
-  right: 8px;
-  opacity: 0;
-}
-
-.theme-toggle .moon-icon {
-  left: 8px;
-  opacity: 1;
-}
-
-[data-theme="light"] .theme-toggle .sun-icon {
-  opacity: 1;
-}
-
-[data-theme="light"] .theme-toggle .moon-icon {
-  opacity: 0;
-}
-
-/* Additional theme styles for common elements */
-.card, .section {
-  background-color: var(--bg-secondary);
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-.btn-primary {
-  background-color: var(--accent-color);
-  border-color: var(--accent-color);
-}
-
-/* Mobile responsive */
-@media (max-width: 768px) {
-  .theme-toggle {
-    width: 50px;
-    height: 25px;
-    margin-left: 10px;
-  }
-  
-  .theme-toggle::before {
-    width: 19px;
-    height: 19px;
-  }
-  
-  [data-theme="light"] .theme-toggle::before {
-    transform: translateX(25px);
-  }
-}
-</style>
-
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" data-theme="dark">
-	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target nav-test"
-		id="ftco-navbar">
-		<div class="container" style="width: 100%;">
-			<button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
-				data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="oi oi-menu"></span> Menu
-			</button>
-
-			<!-- Add your existing navigation items here -->
-			<div class="collapse navbar-collapse" id="ftco-nav">
-				<ul class="navbar-nav ml-auto">
-					<!-- Your existing nav items -->
-					<li class="nav-item">
-						<a href="#home" class="nav-link">Home</a>
-					</li>
-					<li class="nav-item">
-						<a href="#about" class="nav-link">About</a>
-					</li>
-					<li class="nav-item">
-						<a href="#services" class="nav-link">Services</a>
-					</li>
-					<li class="nav-item">
-						<a href="#contact" class="nav-link">Contact</a>
-					</li>
-					
-					<!-- Theme Toggle Button -->
-					<li class="nav-item d-flex align-items-center">
-						<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-							<span class="theme-toggle-icon sun-icon">☀️</span>
-							<span class="theme-toggle-icon moon-icon">🌙</span>
-						</button>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-
-<!-- JavaScript for theme functionality -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
-    
-    // Check for saved theme preference or default to 'dark'
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    body.setAttribute('data-theme', savedTheme);
-    
-    // Theme toggle functionality
-    themeToggle.addEventListener('click', function() {
-        const currentTheme = body.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
-        // Add transition class for smooth animation
-        body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
-        
-        // Update theme
-        body.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        
-        // Add a subtle animation effect
-        themeToggle.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            themeToggle.style.transform = 'scale(1)';
-        }, 150);
-        
-        // Optional: Trigger custom event for other components
-        window.dispatchEvent(new CustomEvent('themeChanged', { 
-            detail: { theme: newTheme } 
-        }));
-    });
-    
-    // Keyboard accessibility
-    themeToggle.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            themeToggle.click();
-        }
-    });
-    
-    // Auto theme based on system preference (optional)
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    // Uncomment below if you want to sync with system theme
-    /*
-    function handleSystemThemeChange(e) {
-        if (!localStorage.getItem('theme')) {
-            const systemTheme = e.matches ? 'dark' : 'light';
-            body.setAttribute('data-theme', systemTheme);
-        }
-    }
-    
-    mediaQuery.addListener(handleSystemThemeChange);
-    handleSystemThemeChange(mediaQuery);
-    */
-});
-
-// Optional: Listen for theme changes from other parts of your app
-window.addEventListener('themeChanged', function(e) {
-    console.log('Theme changed to:', e.detail.theme);
-    // You can add additional logic here when theme changes
-});
-
-// Utility function to get current theme
-function getCurrentTheme() {
-    return document.body.getAttribute('data-theme');
-}
-
-// Utility function to set theme programmatically
-function setTheme(theme) {
-    if (theme === 'light' || theme === 'dark') {
-        document.body.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-        window.dispatchEvent(new CustomEvent('themeChanged', { 
-            detail: { theme: theme } 
-        }));
-    }
-}
-// Enhanced Counter Animation with Staggered Effect
-function staggeredCounterAnimation() {
-    const counters = document.querySelectorAll('.counter');
-    
-    counters.forEach((counter, index) => {
-        const target = +counter.getAttribute('data-count');
-        const delay = index * 200; // 200ms delay between each counter
-        
-        // Add animating class for glow effect
-        setTimeout(() => {
-            counter.classList.add('animating');
-            animateIndividualCounter(counter, target);
-        }, delay);
-    });
-}
-
-function animateIndividualCounter(counter, target) {
-    const duration = 2000;
-    const startTime = performance.now();
-    
-    function updateCounter(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        
-        // Smooth easing function (ease-out cubic)
-        const easeOutCubic = 1 - Math.pow(1 - progress, 3);
-        const current = Math.floor(target * easeOutCubic);
-        
-        // Format large numbers with commas
-        counter.innerText = current >= 1000 ? current.toLocaleString() : current;
-        
-        if (progress < 1) {
-            requestAnimationFrame(updateCounter);
-        } else {
-            counter.innerText = target >= 1000 ? target.toLocaleString() : target;
-            // Remove animating class after animation completes
-            setTimeout(() => {
-                counter.classList.remove('animating');
-            }, 500);
-        }
-    }
-    
-    requestAnimationFrame(updateCounter);
-}
-
-// Mobile menu toggle
-document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenu.classList.toggle('hidden');
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('#mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        document.getElementById('mobile-menu').classList.add('hidden');
-    });
-});
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+        // Intersection Observer for counter animation
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
             });
-        }
-    });
-});
+        }, { threshold: 0.5 });
 
-// Initialize counter animation on scroll
-document.addEventListener('DOMContentLoaded', function() {
-    const counterSection = document.getElementById('counter');
-    let hasAnimated = false;
+        counters.forEach(counter => counterObserver.observe(counter));
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !hasAnimated) {
-                setTimeout(() => {
-                    staggeredCounterAnimation();
-                }, 200);
-                hasAnimated = true;
-            }
-        
-
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
